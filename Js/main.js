@@ -151,6 +151,3 @@ function check(first,second) {
   }
 }
 
-let count = 0;
-
-console.log(count)
