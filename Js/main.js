@@ -38,13 +38,16 @@ let mylen = [];
 
 let myRan = [];
 
-for (let n = 0; n < localStorage.length; n++) {
-  if (isNaN(localStorage.key(n))) {
-
-  } else {
-    mylen.push(localStorage.key(n));
+function generate() {
+  for (let n = 0; n < localStorage.length; n++) {
+    if (isNaN(localStorage.key(n))) {
+  
+    } else {
+      mylen.push(localStorage.key(n));
+    }
   }
 }
+generate();
 
 shufte(rangeBlock);
 
@@ -69,9 +72,9 @@ blocks.forEach((block,index) => {
       localStorage.setItem(ties.innerHTML,ties.innerHTML);
       document.querySelector(".backgr").addEventListener("click",function () {
         document.querySelector(".backgr").remove();
-        console.log(myRan);
         shufte(myRan);
-        console.log(myRan);
+        generate();
+        record.innerHTML = Math.min(...mylen);
         blocks.forEach((blo,ind) => {
           blo.style.order = myRan[ind];
         });
